@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Figure Skates Store</title>
+  <link rel="stylesheet" type="text/css" href="size.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="main.html">Main</a></li>
+      <li><a href="forum.html">Forum</a></li>
+      <li><a href="size.html">Size</a></li>
+    </ul>
+  </nav>
+<div class="page ">
+  <!-- Size Page -->
+  <div class="content">
+    <h1>Size Guide</h1>
+    <p>Find the perfect fit with our size guide for figure skates.</p>
+  </div>
+
+
+
+<p id="demo">     </p>
+  
+  
+
+
+
+<div class="video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/UEsGaZ3nmio" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+
+<div class="container">
+    <h2>Edea Skate Size Calculator</h2>
+    <label for="foot-length">Foot Length (in cm):</label>
+    <input type="number" id="foot-length" placeholder="Enter foot length">
+
+    <label for="foot-circumference">Foot Circumference (in cm):</label>
+    <input type="number" id="foot-circumference" placeholder="Enter foot circumference">
+
+    <button onclick="calculateSize()">Calculate</button>
+
+    <div id="result"></div>
+  </div>
+
+
+
+
+<table>
+        <thead>
+            <tr>
+                <th class="level">Level</th>
+                <th>Skate Model</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">Beginner</td>
+                <td>Edea Tempo</td>
+            </tr>
+            <tr>
+                <td>Edea Overture</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Medium</td>
+                <td>Edea Concerto</td>
+            </tr>
+            <tr>
+                <td>Edea Ice Fly</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Advanced</td>
+                <td>Edea Piano</td>
+            </tr>
+            <tr>
+                <td>Edea Flamenco</td>
+            </tr>
+        </tbody>
+    </table>
+    
+<h1>Famous figure skaters in Edea skates!</h1>
+<div class="container-a">
+  <img src="alina.png" alt="Notebook" style="width:100%;">
+  <div class="content">
+    <h1>Alina Zagitova</h1>
+    <p>  Alina Zagitova's achievements include the Olympic gold medal in women's figure skating at the 2018. She wears Edea Ice fly!</p>
+  </div>
+</div>
+    
+
+    
+    <div class="grid-container">
+  <div class="grid-item">
+    <img src="2023-05-26 23.06.01.jpg "  alt="Photo 1" style="transform: scale(0.788);"  onmouseover="enlargeImage(this)" onmouseout="resetImage(this)">
+  </div>
+  <div class="grid-item">
+    <img src="2023-05-26 23.06.15.jpg " alt="Photo 2" style="transform: scale(0.788);" onmouseover="enlargeImage(this)" onmouseout="resetImage(this)">
+  </div>
+  <div class="grid-item">
+    <img src="2023-05-26 23.06.20.jpg" alt="Photo 3" style="transform: scale(0.788);" onmouseover="enlargeImage(this)" onmouseout="resetImage(this)">
+  </div>
+</div>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.grid-item {
+  text-align: center;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.enlarged {
+  transform: scale(1.2);
+}
+</style>
+
+<script>
+function enlargeImage(img) {
+  img.classList.add("enlarged");
+}
+
+function resetImage(img) {
+  img.classList.remove("enlarged");
+}
+</script> 
+
+
+
+
+  <button onclick="toggleAudio()" id="sound-btn">Mute</button>
+  <audio id="background-music" autoplay preload="auto" loop src="chopim.mp3"></audio>
+
+  <script>
+    function toggleAudio() {
+      var audio = document.getElementById('background-music');
+      var soundBtn = document.getElementById('sound-btn');
+
+      if (audio.paused) {
+        audio.play();
+        soundBtn.textContent = 'Mute';
+      } else {
+        audio.pause();
+        soundBtn.textContent = 'Unmute';
+      }
+    }
+      
+      
+       function calculateSize() {
+      var footLength = parseFloat(document.getElementById("foot-length").value);
+      var footCircumference = parseFloat(document.getElementById("foot-circumference").value);
+      var size;
+
+    if (footLength >= 23.0 && footLength <= 26.0 && footCircumference >= 9.0 && footCircumference <= 16.0) {
+  size = "210";
+} else if (footLength >= 26.5 && footLength <= 28.0 && footCircumference >= 11.0 && footCircumference <= 14.0) {
+  size = "215";
+} else if (footLength >= 28.5 && footLength <= 30.0 && footCircumference >= 13.0 && footCircumference <= 16.0) {
+  size = "220";
+} else if (footLength >= 30.5 && footLength <= 32.0 && footCircumference >= 15.0 && footCircumference <= 18.0) {
+  size = "225";
+} else if (footLength >= 32.5 && footLength <= 34.0 && footCircumference >= 17.0 && footCircumference <= 20.0) {
+  size = "230";
+} else {
+  size = "Size not available";
+}
+
+
+      document.getElementById("result").textContent = "Approximate Edea Skate Size: " + size;
+    }
+
+      
+  </script>
+
+    </div>
+</body>
+</html>
+ 
+ 
+ 
+
+

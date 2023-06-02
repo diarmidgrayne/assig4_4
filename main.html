@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Figure Skates Store</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="main.html">Main</a></li>
+      <li><a href="forum.html">Forum</a></li>
+      <li><a href="size.html">Size</a></li>
+    </ul>
+  </nav>
+<div class="whole">
+  <!-- Main Page Content -->
+
+  <div class="content">
+    <div class="categories">
+      <h3>Filter/Categorization</h3>
+      <ul>
+        <li>
+          <label for="price-range">Price Range:</label>
+          <input type="range" id="price-range" name="price-range" min="0" max="100" step="10">
+        </li>
+        <li>
+          <h4>Category and Subcategory:</h4>
+          <select id="category" onchange="filterSkates()">
+            <option value="all">All</option>
+            <option value="beginner">Beginner</option>
+            <option value="medium">Medium</option>
+            <option value="advanced">Advanced</option>
+          </select>
+          <select id="subcategory" onchange="filterSkates()">
+            <option value="">Select subcategory</option>
+            <option value="basic-steps">Basic Steps</option>
+            <option value="rotation">Rotation</option>
+            <option value="1-turn">1 Turn</option>
+            <option value="toeloop">Toeloop</option>
+            <option value="axel">Axel</option>
+            <option value="fungus">Fungus</option>
+            <option value="Salkhov">Salkhov</option>
+            <option value="2-turns">2 Turns</option>
+            <option value="3-turns">3 Turns</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Skates Section -->
+    <div class="skates">
+      <div class="skate beginner basic-steps">
+        <img src="overture.jpeg" alt="Edea Overture">
+        <h3>Edea Overture</h3>
+        <p>$199.99</p>
+        <button class="btn btn-primary custom-active">Buy</button>
+      </div>
+      <div class="skate beginner rotation">
+        <img src="large_EdeaIceDiscoverySkate-2.jpeg" alt="Edea Ice Discovery">
+        <h3>Edea Ice</h3>
+        <p>$199.99</p>
+        <button class="btn btn-primary custom-active">Buy</button>
+      </div>
+      <div class="skate medium 1-turn">
+        <img src="brio.jpeg" alt="Edea Brio">
+        <h3>Edea Brio</h3>
+        <p>$249.99</p>
+        <button class="btn btn-primary custom-active">Buy</button>
+      </div>
+      <div class="skate medium toeloop">
+        <img src="wave.jpeg" alt="Edea Wave">
+        <h3>Edea Wave</h3>
+        <p>$149.99</p>
+        <button class="btn btn-primary custom-active">Buy</button>
+      </div>
+      <div class="skate medium axel">
+        <img src="flamenco.jpeg" alt="Edea Flamenco">
+        <h3>Edea Flamenco</h3>
+        <p>$149.99</p>
+        <button class="btn btn-primary custom-active">Buy</button>
+      </div>
+      <div class="skate medium fungus">
+        <img src="whitepeano.jpeg" alt="Edea White Peano">
+        <h3>Edea Piano</h3>
+        <p>$149.99</p>
+        <button class="btn btn-primary custom-active">Buy</button>
+      </div>
+      <div class="skate medium Salkhov">
+        <img src="blackchorus.jpeg" alt="Edea Black Chorus">
+        <h3>Edea Chorus</h3>
+        <p>$149.99</p>
+        <button class="btn btn-primary custom-active">Buy</button>
+      </div>
+      <div class="skate advanced 2-turns">
+        <img src="concerto.jpeg" alt="Edea Concerto">
+        <h3>Edea Concerto</h3>
+        <p>$149.99</p>
+        <button class="btn btn-primary custom-active">Buy</button>
+      </div>
+      <div class="skate advanced 3-turns">
+        <img src="icefly.jpeg" alt="Edea Ice Fly">
+        <h3>Edea Ice Fly</h3>
+        <p>$189.99</p>
+        <button class="btn btn-primary custom-active">Buy</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+function filterSkates() {
+  var selectedCategory = document.getElementById("category").value;
+  var selectedSubcategory = document.getElementById("subcategory").value;
+
+  var skates = document.getElementsByClassName("skate");
+  for (var i = 0; i < skates.length; i++) {
+    skates[i].style.display = "none";
+  }
+
+  if (selectedCategory === "all") {
+    for (var i = 0; i < skates.length; i++) {
+      skates[i].style.display = "block";
+    }
+  } else {
+    for (var i = 0; i < skates.length; i++) {
+      var skate = skates[i];
+      if (skate.classList.contains(selectedCategory) && skate.classList.contains(selectedSubcategory)) {
+        skate.style.display = "block";
+      }
+    }
+  }
+}
+
+  </script>
+</body>
+</html>

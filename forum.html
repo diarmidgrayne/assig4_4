@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Form</title>
+    <link rel="stylesheet" type="text/css" href="forum.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="main.html" class="main">Main</a></li>
+            <li><a href="forum.html" class="forum">Forum</a></li>
+            <li><a href="size.html" class="size">Size</a></li>
+        </ul>
+    </nav>
+
+<div class="blue">
+    <h1 class>Availability of Skates</h1>
+    <div class="centered-text">
+        <a href="https://t.me/extrahalapenyo_girl" target="_blank" class="centered-text">Click <strong>here</strong> to write us in telegram, or fill out the form, and we will inform you about the availability of skates within one day!</a>
+
+    </div>
+    
+
+    <div class="container">
+        <form id="contact-form" action="submit.php" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error-message" id="name-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="email-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <span clas="error-message" id="phone-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date of pickup:</label>
+                <input type="date" id="date" name="date" min="2023-06-01" max="2024-12-31" required>
+                <span class="error-message" id="date-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="time">Time of pickup:</label>
+                <input type="time" id="time" name="time" required>
+                <span class="error-message" id="time-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="dropdown">Select a skates model:</label>
+                <select id="dropdown" name="dropdown" required>
+                    <option value="">-- Select --</option>
+                    <option value="option1">Edea Tempo</option>
+                    <option value="option2">Edea Overture</option>
+                    <option value="option3">Edea Fly Ice</option>
+                    <option value="option4">Edea Piano</option>
+                    <option value="option5">Edea Chorus</option>
+                </select>
+                <span class="error-message" id="dropdown-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="color">Skate Color:</label>
+                <div class="radio-buttons">
+                    <label>
+                        <input type="radio" id="black" name="color" value="black">
+                        <span class="radio-text">Black</span>
+                    </label>
+                    <label>
+                        <input type="radio" id="white" name="color" value="white">
+                        <span class="radio-text">White</span>
+                    </label>
+                </div>
+                <span class="error-message" id="color-error"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="checkbox" name="checkbox" required>
+                <label for="checkbox">I agree to receive letters about the new collection of skates</label>
+            </div>
+            <button type="submit" id="submit-btn" class="btn-submit">Submit</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Name validation and warning
+            $('#name').on('input', function() {
+                var nameInput = $(this).val();
+                if (/[^A-Za-z\s]/.test(nameInput[0]) || !/^[A-Z]/.test(nameInput)) {
+                    $('#name-error').text('Name should start with a capital letter and contain only letters and spaces.').addClass('error');
+                } else {
+                    $('#name-error').text('').removeClass('error');
+                }
+            });
+
+            // Email validation and warning
+            $('#email').on('input', function() {
+                var emailInput = $(this).val();
+                if (!/^\S+@\S+\.\S+$/.test(emailInput)) {
+                    $('#email-error').text('Invalid email address.').addClass('error');
+                } else {
+                    $('#email-error').text('').removeClass('error');
+                }
+            });
+
+
+            $(document).ready(function() {
+                // Phone number validation
+                $('#phone').on('input', function() {
+                    var phoneNumber = $(this).val();
+                    if (phoneNumber.length > 13) {
+                        $('#phone-error').text('Phone number should not exceed 13 characters.').addClass('error');
+                    } else {
+                        $('#phone-error').text('').removeClass('error');
+                    }
+                });
+            });
+
+
+
+
+            // Other input fields validation and warning
+            $('#phone, #date, #time, #dropdown, input[type="radio"], #checkbox').on('input', function() {
+                var fieldId = $(this).attr('id');
+                var errorMessageId = fieldId + '-error';
+                $('#' + errorMessageId).text('').removeClass('error');
+            });
+
+            // Form submission
+            $('#contact-form').submit(function(event) {
+                event.preventDefault();
+
+                // Validate the form inputs
+                var nameInput = $('#name').val();
+                var nameRegex = /^[A-Z][A-Za-z\s]*$/;
+                if (!nameRegex.test(nameInput)) {
+                    $('#name-error').text('Name should start with a capital letter and contain only letters and spaces.').addClass('error');
+                    return;
+                }
+
+                var emailInput = $('#email').val();
+                if (!/^\S+@\S+\.\S+$/.test(emailInput)) {
+                    $('#email-error').text('Invalid email address.').addClass('error');
+                    return;
+                }
+
+
+                });
+            
+            
+            $(document).ready(function() {
+  // ...
+
+  // Button click event listener
+  $('#submit-btn').on('click', function(event) {
+    event.preventDefault();
+
+    // Validate the form inputs
+    var nameInput = $('#name').val();
+    var emailInput = $('#email').val();
+    var phoneNumber = $('#phone').val();
+    var dateInput = $('#date').val();
+    var timeInput = $('#time').val();
+    var dropdownInput = $('#dropdown').val();
+    var colorInput = $('input[name="color"]:checked').val();
+    var checkboxInput = $('#checkbox').prop('checked');
+
+    if (nameInput && emailInput && phoneNumber && dateInput && timeInput && dropdownInput && colorInput && checkboxInput) {
+      // Reset the form
+      $('#contact-form')[0].reset();
+      alert('Form successfully submitted');
+    } else {
+      alert('Please fill in all the fields.');
+    }
+  });
+
+  // ...
+});
+  });
+    </script>
+
+
+
+</div>
+
+</body>
+
+</html>
